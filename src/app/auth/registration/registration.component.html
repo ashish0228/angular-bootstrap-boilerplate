@@ -1,0 +1,62 @@
+<div class="logreg-forms">
+    <div>
+        <h3>Registration</h3>
+    </div>
+
+<form [formGroup]="registrationForm" (ngSubmit)="submit()">
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder="Enter first name">
+        <div *ngIf="formControlReg['firstName'].invalid && (formControlReg['firstName'].touched || formSubmit)" class="alert alert-danger">
+            <div *ngIf="formControlReg['firstName'].errors && formControlReg['firstName'].errors.required">
+            Please Enter First Name
+          </div>
+          <div *ngIf="formControlReg['firstName'].errors && formControlReg['firstName'].errors.pattern">
+            Please Enter Valid First Name
+          </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" class="form-control" id="lastName" placeholder="Enter last name" formControlName="lastName">
+        <div *ngIf="formControlReg['lastName'].invalid && (formControlReg['lastName'].touched || formSubmit)" class="alert alert-danger">
+            <div *ngIf="formControlReg['lastName'].errors && formControlReg['lastName'].errors.required">
+            Please Enter Last Name
+          </div>
+          <div *ngIf="formControlReg['lastName'].errors && formControlReg['lastName'].errors.pattern">
+            Please Enter Valid Last Name
+          </div>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email">
+      <div *ngIf="formControlReg['email'].invalid && (formControlReg['email'].touched || formSubmit)" class="alert alert-danger">
+        <div *ngIf="formControlReg['email'].errors && formControlReg['email'].errors.required">
+        Please Enter Email
+      </div>
+      <div *ngIf="formControlReg['email'].errors && formControlReg['email'].errors.email">
+        Please Enter Valid Email
+      </div>
+    </div>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" formControlName="password">
+      <div *ngIf="formControlReg['password'].invalid && (formControlReg['password'].touched || formSubmit)" class="alert alert-danger">
+        <div *ngIf="formControlReg['password'].errors && formControlReg['password'].errors.required">
+        Please Enter Password
+      </div>
+      <div *ngIf="formControlReg['password'].errors && formControlReg['password'].errors.pattern">
+        Password Must contain Capital, Small, special Character and Number 
+      </div>
+    </div>
+    </div>
+
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary" (click)="resetForm()">Clear</button>
+      <button type="submit" class="btn btn-success">Registration</button>
+    </div>
+  </form>
+
+  </div>

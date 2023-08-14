@@ -1,0 +1,2 @@
+.btn-group button{margin-right: 10px;}
+.btn-group button:last-child{margin-right: 0px;}

@@ -1,0 +1,12 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand">
+        <h1>My App</h1>
+      </a>
+      <div class="btn-group">
+          <button class="btn btn-primary mr-8" *ngIf="!showLogout" [routerLink]="['/login']">Login</button>
+          <button class="btn btn-primary" *ngIf="!showLogout" [routerLink]="['/registration']">Registration</button>
+          <button class="btn btn-primary" *ngIf="showLogout" [routerLink]="['/login']" (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </nav>
